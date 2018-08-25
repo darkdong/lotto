@@ -8,8 +8,13 @@ console.log(web3)
 // String.prototype.toEther = function () {
 //     return web3.utils.fromWei(String(this), 'ether')
 // }
-
-test()
+// 0xd82d051a9d8942d532e22334ab5048e0543e183121274527ce870feb422630f8
+// const number = 3
+const secret = web3.utils.sha3('xyz')
+console.log(secret)
+const encryptedNumber = web3.utils.soliditySha3({ type: 'uint8', value: 3 }, { type: 'bytes32', value: secret })
+console.log('encryptedNumber', encryptedNumber)
+// test()
 
 async function test() {
     const networkId = await web3.eth.net.getId()
